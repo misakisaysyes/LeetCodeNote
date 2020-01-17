@@ -3,6 +3,7 @@
 ---
 
 ### 1.滑动窗口
+
 <br/>
 **1.Average Of Subarray Of Size K (easy)**
 
@@ -22,17 +23,17 @@ Solution:
 	
 	class AverageOfSubarrayOfSizeK{
 		vector<double> res(arr.size() - k + 1);
-    	double wdsum;//子列和
-    	int wdstart;//滑动窗口初始边
-    	int wdend;//滑动窗口末边，用于在循环中替代i
-    	for(wdsum = 0, wdstart = 0, wdend = 0; wdend < arr.size(); wdend++){
-        	wdsum += arr[wdend];
-        	if(wdend >= k-1){//判断滑动窗口末边满足的条件，调整初始边
-            	res.push_back(wdsum/5);
-            	wdsum -= arr[wdstart++];
-        	}
-    	}
-    	return res;
+		double wdsum;//子列和
+		int wdstart;//滑动窗口初始边
+		int wdend;//滑动窗口末边，用于在循环中替代i
+		for(wdsum = 0, wdstart = 0, wdend = 0; wdend < arr.size(); wdend++){
+			wdsum += arr[wdend];
+			if(wdend >= k-1){//判断滑动窗口末边满足的条件，调整初始边
+				res.push_back(wdsum/5);
+				wdsum -= arr[wdstart++];
+			}
+		}
+		return res;
 	}
 
 Time complexity O(N)
@@ -62,14 +63,14 @@ Solution:
 		public:
 			static int findMaxSumSubArray(int k, const vector<int>& arr) {
 				int maxSum = 0;
-			    int wdstart, wdend, subSum;
-			    for(wdstart = 0, wdend = 0, subSum = 0; wdend < arr.size(); wdend++){
-			        subSum += arr[wdend];
-			        if(wdend >= k-1){
-			            maxSum = maxSum > subSum ? maxSum : subSum;
-			            subSum -= arr[wdstart++];
-        			}
-    			}
+				int wdstart, wdend, subSum;
+				for(wdstart = 0, wdend = 0, subSum = 0; wdend < arr.size(); wdend++){
+					subSum += arr[wdend];
+					if(wdend >= k-1){
+						maxSum = maxSum > subSum ? maxSum : subSum;
+						subSum -= arr[wdstart++];
+					}
+				}
 				return maxSum;
 			}
 	};
