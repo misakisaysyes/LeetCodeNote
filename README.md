@@ -4,7 +4,7 @@
 
 ### 1.滑动窗口
 
-<br/>
+
 **1.Average Of Subarray Of Size K (easy)**
 
 Given an array, find the average of all contiguous subarrays of size ‘K’ in it.
