@@ -3,7 +3,7 @@
 ---
 
 ### 1.滑动窗口
-
+<br/>
 **1.Average Of Subarray Of Size K (easy)**
 
 Given an array, find the average of all contiguous subarrays of size ‘K’ in it.
@@ -39,7 +39,7 @@ Time complexity O(N)
 
 Space complexity O(1)
 
-
+<br/><br/>
 **2.Maximum Sum Subarry Of Size K (easy)**
 
 Given an array of positive numbers and a positive number ‘k’, find the maximum sum of any contiguous subarray of size ‘k’.
@@ -59,9 +59,9 @@ Example 2:
 Solution:
 
 	class MaxSumSubArrayOfSizeK {
- 		public:
-  			static int findMaxSumSubArray(int k, const vector<int>& arr) {
-    			int maxSum = 0;
+		public:
+			static int findMaxSumSubArray(int k, const vector<int>& arr) {
+				int maxSum = 0;
 			    int wdstart, wdend, subSum;
 			    for(wdstart = 0, wdend = 0, subSum = 0; wdend < arr.size(); wdend++){
 			        subSum += arr[wdend];
@@ -70,8 +70,8 @@ Solution:
 			            subSum -= arr[wdstart++];
         			}
     			}
-   				return maxSum;
- 			}
+				return maxSum;
+			}
 	};
 Time complexity O(N)
 
@@ -83,7 +83,7 @@ Space complexity O(1)
 
 2.同(时)移(动)(相)同距(离)：一个循环解决,循环无条件移动wdend,满足条件移动wdstart,判定条件<font color=#CD5C5C> wdend>=k-1 </font>
 
-
+<br/><br/>
 **3.Smallest Subarray with a given sum (easy)**
 
 Given an array of positive numbers and a positive number ‘S’, find the length of the smallest contiguous subarray whose sum is greater than or equal to ‘S’. Return 0, if no such subarray exists.
@@ -141,6 +141,7 @@ Space complexity O(1)
 
 2.不同(时)移(动)不同距(离)=>两个循环解决，外循环移动wdend, 内循环移动wdstart，判定条件与targetRes有关.
 
+<br/><br/>
 **4.Longest Substring with K Distinct Characters (medium)**
 
 Given a string, find the length of the longest substring in it with no more than .
@@ -166,8 +167,8 @@ Example 3:
 Solution:  
 	
 	class LongestSubstringKDistinct {
- 		public:
-  			static int findLength(const string& str, int k) {
+		public:
+			static int findLength(const string& str, int k) {
 		    	int maxLength = 0;
 		    	int subLen, wdstart, wdend;
 		    	unordered_map<char, int> buf;
@@ -194,8 +195,3 @@ Time complexity O(N) <font color=#6B8E23>//wdend与wdstart不是同时遍历完�
 
 Space complexity O(K) <font color=#6B8E23>//哈希表中会存k+1个字符</font>
 	
-
-
-<font color=#CD5C5C>注意点</font>
-
-<font color=#6B8E23>补充</font>
