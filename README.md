@@ -115,24 +115,24 @@ Solution:
 	class MinSizeSubArraySum {
 		public:
 		static int findMinSubArray(int S, const vector<int>& arr) {
-	    	int minLen = numeric_limits<int>::max();
-	    	int subSum, wdstart, wdend;
-	    	for(subSum = 0 ,wdstart = 0 , wdend = 0; wdend < arr.size(); wdend++){
-	      		subSum += arr[wdend];
-	      		while(subSum >= S){
+			int minLen = numeric_limits<int>::max();
+			int subSum, wdstart, wdend;
+			for(subSum = 0 ,wdstart = 0 , wdend = 0; wdend < arr.size(); wdend++){
+				subSum += arr[wdend];
+				while(subSum >= S){
 					subSum -= arr[wdstart++];
 					//只有在第一次移动wdstart后才能用[1][2]计算窗口最小长度
 					//没有bool变量指示wdstart是否为第一次移动的情况下不能将[1][2]写到外循环中
 					//否则当刚开始进入循环时wdend == wdstart == 0 会造成minLen计算错误 
-	        		int subLen = wdend - wdstart + 1;//[1]
-	        		minLen = subLen < minLen ? subLen : minLen;//[2]
-	      		}
-	    	}
-	    	if(wdstart)
-	      		return minLen;
-	    	else
-	      		return -1;
-	 	}
+					int subLen = wdend - wdstart + 1;//[1]
+					minLen = subLen < minLen ? subLen : minLen;//[2]
+				}
+			}
+			if(wdstart)
+				return minLen;
+			else
+				return -1;
+		}
 	};
 
 Time complexity O(N) <font color=#6B8E23>//wdend与wdstart不是同时遍历完整个数组的，而是wdend和wdstart分别遍历一遍数组,故时间复杂度为O(2*N),约等于O(N).</font>
